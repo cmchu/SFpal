@@ -1,2 +1,2 @@
 # SFpal
-school project
+I have high hope for this project
