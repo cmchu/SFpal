@@ -6,7 +6,10 @@ There are a lot of things to consider for the first time mover to a big city: re
 
 restaurant data :https://data.sfgov.org/Health-and-Social-Services/Restaurant-Scores-LIVES-Standard/pyih-qa8i
 
-Folder development
+## Folder description
+### development
   - rent_citydata: scarp data from zillow to get rent data and city data from http://www.city-data.com/
     - generate csv file: ZIPdata.csv with all properties, zip.csv with average rent and city data per zip code
     - contians data including: Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage), CostofLiving (living index)
+
+  
