@@ -21,3 +21,7 @@ bart data: https://www.bart.gov/schedules/developers/geo ; http://www.dot.ca.gov
     - contians data including: Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage), CostofLiving (living index)
 
   
+## Python Package Dependencies
+  - geopandas
+    - to install with Anaconda: 
+      - conda install -c conda-forge geopandas
