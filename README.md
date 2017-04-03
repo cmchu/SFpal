@@ -18,6 +18,10 @@ bart data: https://www.bart.gov/schedules/developers/geo ; http://www.dot.ca.gov
 ### development
   - rent_citydata: scrape data from zillow to get rent data and city data from http://www.city-data.com/
     - generate csv file: ZIPdata.csv with all properties, zip.csv with average rent and city data per zip code
-    - contians data including: Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage), CostofLiving (living index)
+    - contains data including: Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage), CostofLiving (living index)
 
   
+## Python Package Dependencies
+  - geopandas
+    - to install with Anaconda: 
+      - conda install -c conda-forge geopandas
