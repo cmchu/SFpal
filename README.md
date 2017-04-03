@@ -38,7 +38,7 @@ This folder contains the data from the raw_data folder after being cleaned and s
 This folder contains code to gather/scrape data, clean data, and spatially analyze data.
   - rent_citydata.py
     - scrapes data from Zillow and City-Data
-    - gathers data on Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage), Cost of Living (living index)
+    - gathers data on Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage who have Bachelor's degree), Cost of Living (living index)
     - generates ZIPdata.csv file and zip.csv file
       - ZIPdata.csv contains data on every listing in San Francisco
       - zip.csv condenses the data in ZIPdata.csv to provide averaged data for each zip code
