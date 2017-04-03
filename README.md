@@ -42,6 +42,10 @@ This folder contains code to gather/scrape data, clean data, and spatially analy
     - generates ZIPdata.csv file and zip.csv file
       - ZIPdata.csv contains data on every listing in San Francisco
       - zip.csv condenses the data in ZIPdata.csv to provide averaged data for each zip code
+  - GeoData_Analysis.ipynb
+    - cleans parks, schools, and bart stations data, and spatially joins them with zipcode data
+    - reads in data from raw_data folder
+    - generates cleaned csv files, which are placed into the clean_data folder
 
 ### functions
 This folder contains all functions, as well as app architecture (server, client, etc.).
