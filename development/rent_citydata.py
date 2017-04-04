@@ -147,13 +147,15 @@ def HouseGrabber(zip, cityyy, stateee):  #given a zip, returns house stuff
                     sqft = getPropertyData(item.find(class_="zsg-photo-card-info"))
                     zprice, zrent = getRentPrice(zpid)
                     price = getListPrice (item.find(class_="zsg-photo-card-price"))
+                    lat = item.findAll('meta')[0].attrs[u'content']
+                    lon = item.findAll('meta')[1].attrs[u'content']
 
-                    zipdetail.append((cityyy, stateee, zip, zpid, sqft, price, zprice, zrent, income, prate, edd, col))
+                    zipdetail.append((cityyy, stateee, zip, zpid, lat, lon, sqft, price, zprice, zrent, income, prate, edd, col))
 
     return zipdetail
 
 def getEverything():
-    fulllist = [['City', 'State', 'ZIP', 'ZillowID','sqft', 'Price', 'ZPrice', 'ZRent', 'Income', 'Poverty','Degree', 'CostofLiving']]    #citylist = getCitylist()
+    fulllist = [['City', 'State', 'ZIP', 'ZillowID','sqft', 'latitude', 'lontitude','Price', 'ZPrice', 'ZRent', 'Income', 'Poverty','Degree', 'CostofLiving']]    #citylist = getCitylist()
     citylist = [['San Francisco','CA']]
     for city in citylist:
         ziplist = GetZip(city[0], city[1])
