@@ -45,7 +45,7 @@ This folder contains code to gather/scrape data, clean data, and spatially analy
 ### functions 
 This folder contains sub-folders: app, data cleaning, data transforming, and data scraping.
   - **app** contains the app architecture (server, client, etc.).
-  - **data scrapgin** 
+  - **data scraping** 
     - rent_citydata.py
       - scrapes data from Zillow and City-Data
       - gathers data on Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage who have Bachelor's degree), Cost of Living (living index)
@@ -58,3 +58,6 @@ This folder contains sub-folders: app, data cleaning, data transforming, and dat
   - geopandas
     - to install with Anaconda: 
       - conda install -c conda-forge geopandas
+  - BeautifulSoup
+  - urllib2
+  - untangle
