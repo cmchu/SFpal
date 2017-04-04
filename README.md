@@ -32,7 +32,7 @@ For app development, we used Python Flask.
 ## Folder description
 ### data
 This folder contains two sub-folders: raw_data and clean_data.
-*clean_data* contains the data from the *raw_data* folder after being cleaned and spatially joined with the zipcode data.
+  - **clean_data** contains the data from the **raw_data** folder after being cleaned and spatially joined with the zipcode data.
 
 ### development
 This folder contains code to gather/scrape data, clean data, and spatially analyze data.
@@ -49,7 +49,7 @@ This folder contains code to gather/scrape data, clean data, and spatially analy
 
 ### functions 
 This folder contains sub-folders: app,data cleaning, data transforming, and data scraping.
-  - *app* contains app architecture (server, client, etc.).
+  - **app** contains app architecture (server, client, etc.).
 
   
 ## Python Package Dependencies
