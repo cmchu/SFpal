@@ -37,12 +37,6 @@ This folder contains two sub-folders: raw_data and clean_data.
 
 ### development
 This folder contains code to gather/scrape data, clean data, and spatially analyze data.
-  - rent_citydata.py
-    - scrapes data from Zillow and City-Data
-    - gathers data on Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage who have Bachelor's degree), Cost of Living (living index)
-    - generates ZIPdata.csv file and zip.csv file
-      - zillow_citydata.csv contains data on every listing in San Francisco
-      - zillow_citydata_condensed.csv condenses the data in zillow_citydata.csv to provide averaged data for each zip code
   - GeoData_Analysis.ipynb
     - cleans parks, schools, and bart stations data, and spatially joins them with zipcode data
     - reads in data from raw_data folder
@@ -51,6 +45,13 @@ This folder contains code to gather/scrape data, clean data, and spatially analy
 ### functions 
 This folder contains sub-folders: app, data cleaning, data transforming, and data scraping.
   - **app** contains the app architecture (server, client, etc.).
+  - **data scrapgin** 
+    - rent_citydata.py
+      - scrapes data from Zillow and City-Data
+      - gathers data on Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage who have Bachelor's degree), Cost of Living (living index)
+      - generates ZIPdata.csv file and zip.csv file
+        - zillow_citydata.csv contains data on every listing in San Francisco
+        - zillow_citydata_condensed.csv condenses the data in zillow_citydata.csv to provide averaged data for each zip code
 
   
 ## Python Package Dependencies
