@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template
+
 
 app = Flask(__name__)
 
@@ -6,12 +7,12 @@ app = Flask(__name__)
 @app.route('/')
 def default():
 
-    output = dict()
+    #output = dict()
 
     # this could be a web page of docs instead
-    output['message'] = 'Welcome to the test app!'
-
-    return jsonify(output)
+    #output['message'] = 'Welcome to the SFpal!'
+    return render_template('mainpage.html')
+    #return script
 
 
 @app.route('/resource')
@@ -19,6 +20,7 @@ def get_resource():
     """
 
     """
+
     out = dict()
 
     out['result'] = 'This is the resource'
