@@ -19,10 +19,6 @@ One of the important aspects of this app is collecting accurate data on all diff
     - https://data.sfgov.org/Economy-and-Community/Schools/tpp3-epx2
   - bart stations data
     - http://www.dot.ca.gov/hq/tsip/gis/datalibrary/Metadata/BART_13.html
-  - rent data
-    - https://www.zillow.com/
-  - city data
-    - http://www.city-data.com/
 
 After collection of all data, we spatially joined the data with the zipcode data in order to be able to analyze all data by zipcode and in order to make sure all zipcode definitions are equivalent.
 
@@ -34,9 +30,9 @@ After collection of all data, we spatially joined the data with the zipcode data
 For app development, we used Python Flask.
 
 ## Folder description
-
-### clean_data
-This folder contains the data from the raw_data folder after being cleaned and spatially joined with the zipcode data.
+### data
+This folder contains two sub-folders: raw_data and clean_data.
+*clean_data* contains the data from the *raw_data* folder after being cleaned and spatially joined with the zipcode data.
 
 ### development
 This folder contains code to gather/scrape data, clean data, and spatially analyze data.
@@ -51,11 +47,10 @@ This folder contains code to gather/scrape data, clean data, and spatially analy
     - reads in data from raw_data folder
     - generates cleaned csv files, which are placed into the clean_data folder
 
-### functions
-This folder contains all functions, as well as app architecture (server, client, etc.).
+### functions 
+This folder contains sub-folders: app,data cleaning, data transforming, and data scraping.
+  - *app* contains app architecture (server, client, etc.).
 
-### raw_data
-This folder contains the originally downloaded data from the sources listed under "Data Collection".
   
 ## Python Package Dependencies
   - geopandas
