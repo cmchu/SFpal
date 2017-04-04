@@ -19,6 +19,10 @@ One of the important aspects of this app is collecting accurate data on all diff
     - https://data.sfgov.org/Economy-and-Community/Schools/tpp3-epx2
   - bart stations data
     - http://www.dot.ca.gov/hq/tsip/gis/datalibrary/Metadata/BART_13.html
+  - rent data
+    - https://www.zillow.com/
+  - city data
+    - http://www.city-data.com/
 
 After collection of all data, we spatially joined the data with the zipcode data in order to be able to analyze all data by zipcode and in order to make sure all zipcode definitions are equivalent.
 
