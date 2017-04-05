@@ -33,26 +33,31 @@ For app development, we used Python Flask.
 ### data
 This folder contains two sub-folders: raw_data and clean_data.
   - **clean_data** contains the data from the **raw_data** folder after being cleaned and spatially joined with the zipcode data.
+  - **raw_data** contains the originally scraped data or downloaded data
 
 ### development
 This folder contains code to gather/scrape data, clean data, and spatially analyze data.
-  - rent_citydata.py
-    - scrapes data from Zillow and City-Data
-    - gathers data on Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage who have Bachelor's degree), Cost of Living (living index)
-    - generates ZIPdata.csv file and zip.csv file
-      - ZIPdata.csv contains data on every listing in San Francisco
-      - zip.csv condenses the data in ZIPdata.csv to provide averaged data for each zip code
   - GeoData_Analysis.ipynb
     - cleans parks, schools, and bart stations data, and spatially joins them with zipcode data
     - reads in data from raw_data folder
     - generates cleaned csv files, which are placed into the clean_data folder
 
 ### functions 
-This folder contains sub-folders: app,data cleaning, data transforming, and data scraping.
-  - **app** contains app architecture (server, client, etc.).
+This folder contains sub-folders: app, data cleaning, data transforming, and data scraping.
+  - **app** contains the app architecture (server, client, etc.).
+  - **data scraping** 
+    - rent_citydata.py
+      - scrapes data from Zillow and City-Data
+      - gathers data on Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage who have Bachelor's degree), Cost of Living (living index)
+      - generates ZIPdata.csv file and zip.csv file
+        - zillow_citydata.csv contains data on every listing in San Francisco
+        - zillow_citydata_condensed.csv condenses the data in zillow_citydata.csv to provide averaged data for each zip code
 
   
 ## Python Package Dependencies
   - geopandas
     - to install with Anaconda: 
       - conda install -c conda-forge geopandas
+  - BeautifulSoup
+  - urllib2
+  - untangle
