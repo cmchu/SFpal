@@ -1,0 +1,11 @@
+<script type=text/javascript src="{{url_for('static', filename='slider.js') }}"></script>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/slider.css') }}">
+
+<form method="post" action="history">
+<input type="range" name="foo" min="0" max="100">
+<output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+<input type="range" name="foo" min="0" max="100" style="width: 300px;">
+<output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+
+</form>
+

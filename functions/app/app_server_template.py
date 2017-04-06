@@ -13,30 +13,12 @@ def default():
     #output['message'] = 'Welcome to the SFpal!'
     return render_template('mainpage.html')
     #return script
+   
+@app.route('/Ready')
+def post_history():
 
-
-@app.route('/resource')
-def get_resource():
-    """
-
-    """
-
-    out = dict()
-
-    out['result'] = 'This is the resource'
-
-    return jsonify(out)
-
-
-@app.route('/resource/<var>')
-def get_resource_var(var):
-    """
-    """
-    user = request.args.get('user')
-    out = dict()
-    if user:
-        out['user'] = user
-    out['var'] = var
+    #return a json to see all the variable inputs
+    out = request.args.to_dict()
 
     return jsonify(out)
 
