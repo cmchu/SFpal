@@ -19,8 +19,10 @@ One of the important aspects of this app is collecting accurate data on all diff
     - https://data.sfgov.org/Economy-and-Community/Schools/tpp3-epx2
   - bart stations data
     - http://www.dot.ca.gov/hq/tsip/gis/datalibrary/Metadata/BART_13.html
-  - police report data
+  - SF Police Department Incidents data
     - https://data.sfgov.org/Public-Safety/SFPD-Incidents-from-1-January-2003/tmnf-yvry/data
+  - SF Police Department Locations data
+    - https://data.sfgov.org/Public-Safety/Police-Stations-2011-/rwdu-9wb2
   - rent, house price data
     - https://www.zillow.com/
   - city data
@@ -59,7 +61,6 @@ This folder contains sub-folders: app, data cleaning, data transforming, and dat
       - generates ZIPdata.csv file and zip.csv file
         - zillow_citydata.csv contains data on every listing in San Francisco
         - zillow_citydata_condensed.csv condenses the data in zillow_citydata.csv to provide averaged data for each zip code
-
   
 ## Python Package Dependencies
   - geopandas
