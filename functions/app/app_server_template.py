@@ -17,25 +17,28 @@ def predict(input):
 
 @app.route('/', methods=['GET', 'POST'])
 def default():
-
     #output = dict()
-
+    out = [('Best', 94116), ('Better Than Good', 94112), ('Good', 94127)]
     # this could be a web page of docs instead
     #output['message'] = 'Welcome to the SFpal!'
     if request.method == "POST":
         if request.form['submit'] == 'submit':
             selected_val = ','.join(request.form.getlist('check'))
             return redirect(url_for('.do_result', selected_val=selected_val))
-    return render_template('mainpage.html')
+    return render_template('index_3.html')
 
 
-@app.route('/results')
+@app.route('/result')
 def do_result():
     selected_val = request.args['selected_val']
     # replace this with a query from whatever database you're using
     val = selected_val.split(",")
 
-    return get_community(val)
+    out = get_community(val)
+
+    #return jsonify(out)
+    return render_template('result.html', scroll='something', out=out)
+    #return redirect(url_for('.default', _anchor="services", out = out))
 
    
 @app.route('/Ready')
@@ -50,12 +53,12 @@ def post_history():
 @app.route('/SFpal')
 def get_community(selected):
 
-    keys = ['crime', 'sanitation', 'noise-free', 'attractiveness', 'child-friendly', 'greenery', 'walking-friendly',
-            'restaurant', 'coffee-lover', 'night-life', 'dog-person', 'construction']
+    keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "greenery", "walking_cxcondition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
     vals = [1.0 if i in selected else 0.0 for i in keys]
     prediction = predict(vals)
     out = zip(['Best', 'Better Than Good', 'Good'], prediction)
-    return jsonify(out)
+
+    return out
 
 
 if __name__ == "__main__":
