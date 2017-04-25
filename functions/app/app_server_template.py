@@ -18,7 +18,6 @@ def predict(input):
 @app.route('/', methods=['GET', 'POST'])
 def default():
     #output = dict()
-    out = [('Best', 94116), ('Better Than Good', 94112), ('Good', 94127)]
     # this could be a web page of docs instead
     #output['message'] = 'Welcome to the SFpal!'
     if request.method == "POST":
@@ -31,14 +30,11 @@ def default():
 @app.route('/result')
 def do_result():
     selected_val = request.args['selected_val']
-    # replace this with a query from whatever database you're using
-    val = selected_val.split(",")
 
+    val = selected_val.split(",")
     out = get_community(val)
 
-    #return jsonify(out)
     return render_template('result.html', scroll='something', out=out)
-    #return redirect(url_for('.default', _anchor="services", out = out))
 
    
 @app.route('/Ready')
