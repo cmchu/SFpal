@@ -21,6 +21,12 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+    <!-- For Check box -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/build.css">
+
+
     <!-- Theme CSS -->
     <link href="/static/css/agency.min.css" rel="stylesheet">
 
@@ -88,34 +94,69 @@
     <!-- Services Section -->
     <section id="services">
         <div class="container">
-            <div class="row">
+                <div class = 'row'>
+
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Services</h2>
-                    <h3 class="section-subheading text-muted">Select what you want.</h3>
+                    <h4 class="section-subheading text-muted">Select what you want.</h4>
                 </div>
-            </div>
-            <div class="row text-center">
-                <div class="container"><br>
-                  <form role="form" method="post">
-                    <input type="checkbox" name="check" value="sanitation">sanitation<br>
-                    <input type="checkbox" name="check" value="peace_quiet">peace_quiet<br>
-                    <input type="checkbox" name="check" value="appearance">appearance<br>
-                      <input type="checkbox" name="check" value="children_friendly">children_friendly<br>
-                      <input type="checkbox" name="check" value="greenery">greenery<br>
-                      <input type="checkbox" name="check" value="walking_cxcondition">walking_cxcondition<br>
-                      <input type="checkbox" name="check" value="coffee">coffee<br>
-                      <input type="checkbox" name="check" value="nightlife">nightlife<br>
-                      <input type="checkbox" name="check" value="dog_friendly">dog_friendly<br>
-                      <input type="checkbox" name="check" value="construction">construction<br>
-                      <input type="checkbox" name="check" value="parks">parks<br>
-                      <input type="checkbox" name="check" value="schools">schools<br>
-                    <input type="checkbox" name="check" value="bart_stations">bart_stations<br>
-                    <input type="checkbox" name="check" value="safety">safety<br>
-                    <input type="checkbox" name="check" value="restaurants">restaurants<br>
-                    <button type="submit" name="submit" value="submit">Submit</button>
+                    <div class="col-md-6 col-md-offset-5 column">
+                    <form role="form" method="post">
+
+                      <div class="checkbox checkbox-info checkbox-circle">
+
+                          <input type="checkbox" class="styled" name="check" value="sanitation">
+                          <label for="inlineCheckbox1"> sanitation </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="peace_quiet">
+                          <label for="inlineCheckbox2"> peace_quiet </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="appearance">
+                          <label for="inlineCheckbox3"> appearance </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="children_friendly">
+                          <label for="inlineCheckbox4"> children_friendly </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="greenery">
+                          <label for="inlineCheckbox5"> greenery </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="walking_cxcondition">
+                          <label for="inlineCheckbox6"> walking_cxcondition </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="coffee">
+                          <label for="inlineCheckbox7"> coffee </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="nightlife">
+                          <label for="inlineCheckbox8"> nightlife </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="dog_friendly">
+                          <label for="inlineCheckbox9"> dog_friendly </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="construction">
+                          <label for="inlineCheckbox10"> construction </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="parks">
+                          <label for="inlineCheckbox11"> parks </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="schools">
+                          <label for="inlineCheckbox12"> schools </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="bart_stations">
+                          <label for="inlineCheckbox13"> bart_stations </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="safety">
+                          <label for="inlineCheckbox14"> safety </label> <br>
+
+                          <input type="checkbox" class="styled" name="check" value="restaurants">
+                          <label for="inlineCheckbox15"> restaurants </label> <br>
+                      </div>
+                        <div class="col-md-6 col-md-offset-0">
+                      <button type="submit" name="submit" value="submit">Submit</button>
+                        </div>
+
                   </form>
                 </div>
-            </div>
+                </div>
         </div>
     </section>
 
@@ -304,15 +345,15 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">We are the best team in MSAN631</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="/static/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
+                        <h4>Linda Liu</h4>
+                        <p class="text-muted">Project Manager</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -326,8 +367,8 @@
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="/static/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
+                        <h4>Christine Chu</h4>
+                        <p class="text-muted">Data Engineering</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -341,8 +382,8 @@
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="/static/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <h4>Evelyn Peng</h4>
+                        <p class="text-muted">Data Analyst</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -356,7 +397,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                    <p class="large text-muted">We are the best data analytics service that helps you locate your next best community in the <b>city of San Francisco</b></p>
                 </div>
             </div>
         </div>
