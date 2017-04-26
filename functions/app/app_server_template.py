@@ -1,13 +1,12 @@
 from flask import Flask, request, jsonify,render_template, redirect, url_for
-from sklearn.metrics import jaccard_similarity_score
-
-import pandas as pd
 
 app = Flask(__name__)
 
 
 def predict(input):
-
+    from sklearn.metrics import jaccard_similarity_score
+    import pandas as pd
+    gold_standard = pd.read_csv('gold_standard.csv')
     for row in range(gold_standard.shape[0]):
         similarity = jaccard_similarity_score(gold_standard.drop(["similarity", "zip"], axis=1).ix[row,],input)
         gold_standard.ix[row, "similarity"] = similarity
@@ -66,6 +65,4 @@ def get_community(selected):
 
 
 if __name__ == "__main__":
-
-    gold_standard = pd.read_csv('gold_standard.csv')
-    app.run(host='0.0.0.0')# need this to access from the outside world!
+    app.run()# need this to access from the outside world!
