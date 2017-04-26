@@ -13,6 +13,15 @@ def predict(input):
 
     return gold_standard.sort_values("similarity", ascending=False).reset_index(drop=True).ix[[0, 1, 2], "zip"]
 
+def get_community(selected):
+
+    keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "greenery", "walking_condition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
+    vals = [1.0 if i in selected else 0.0 for i in keys]
+    prediction = predict(vals)
+    out = zip(['Best zipcode to live in', 'Second best zipcode to live in', 'Third best zipcode to live in'], prediction)
+
+    return out
+
 
 @app.route('/', methods=['GET', 'POST'])
 def default():
@@ -51,17 +60,6 @@ def post_history():
     out = "When you are ready to move, we are ready to help. WELCOME TO SFPAL!"
     out = {'description': out}
     return jsonify(out)
-
-
-@app.route('/SFpal')
-def get_community(selected):
-
-    keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "greenery", "walking_condition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
-    vals = [1.0 if i in selected else 0.0 for i in keys]
-    prediction = predict(vals)
-    out = zip(['Best zipcode to live in', 'Second best zipcode to live in', 'Third best zipcode to live in'], prediction)
-
-    return out
 
 
 if __name__ == "__main__":
