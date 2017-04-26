@@ -15,7 +15,7 @@ SERVER = '0.0.0.0:5000'
 def get_default():
     out = dict()
     h = httplib.HTTPConnection(SERVER)
-    h.request('GET', 'http://'+SERVER+'/')
+    h.request('GET', 'http://'+SERVER+'/description')
     resp = h.getresponse()
     out = resp.read()
     return out
@@ -27,13 +27,15 @@ def get_result():
 
     # want the url to look like this
     # http://0.0.0.0:5000/result?selected_val=sanitation%2Ccoffee%2Cconstruction#something
-    h.request('GET', 'http://'+SERVER+'/result?selected_val=' + "%2C".join(keys)+'#something')
+    h.request('GET', 'http://'+SERVER+'/results?selected_val=' + "%2C".join(keys)+ 'type=json'+'#something')
     resp = h.getresponse()
     out = resp.read()
-    soup = BeautifulSoup(out, 'html.parser')
-    result = soup.find("section", {"id": "services"})
+    return out
 
-    return result.table
+    # soup = BeautifulSoup(out, 'html.parser')
+    # result = soup.find("section", {"id": "services"})
+    #
+    # return result.table
 
 
 if __name__ == '__main__':

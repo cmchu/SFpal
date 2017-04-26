@@ -32,25 +32,35 @@ def do_result():
     val = selected_val.split(",")
     out = get_community(val)
 
-    return render_template('result.html',  scroll='something',out=out)
+    return render_template('result.html', scroll='something', out=out)
 
-   
-@app.route('/Ready')
+@app.route('/results')
+def do_results():
+    selected_val = request.args['selected_val']
+
+    val = selected_val.split(",")
+    out = get_community(val)
+
+    return jsonify(out)
+
+
+
+@app.route('/description')
 def post_history():
 
     # return a json to see all the variable inputs
-    out = request.args.to_dict()
-
+    out = "When you are ready to move, we are ready to help. WELCOME TO SFPAL!"
+    out = {'description': out}
     return jsonify(out)
 
 
 @app.route('/SFpal')
 def get_community(selected):
 
-    keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "greenery", "walking_cxcondition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
+    keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "greenery", "walking_condition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
     vals = [1.0 if i in selected else 0.0 for i in keys]
     prediction = predict(vals)
-    out = zip(['Best', 'Better Than Good', 'Good'], prediction)
+    out = zip(['Best zipcode to live in', 'Second best zipcode to live in', 'Third best zipcode to live in'], prediction)
 
     return out
 
