@@ -17,9 +17,7 @@ def predict(input):
 
 @app.route('/', methods=['GET', 'POST'])
 def default():
-    #output = dict()
-    # this could be a web page of docs instead
-    #output['message'] = 'Welcome to the SFpal!'
+
     if request.method == "POST":
         if request.form['submit'] == 'submit':
             selected_val = ','.join(request.form.getlist('check'))
@@ -34,7 +32,7 @@ def do_result():
     val = selected_val.split(",")
     out = get_community(val)
 
-    return render_template('result.html', scroll='something', out=out)
+    return render_template('result.html',  scroll='something',out=out)
 
    
 @app.route('/Ready')

@@ -1,41 +1,34 @@
 import httplib
+from bs4 import BeautifulSoup
+
 
 # use this server for dev
-SERVER = 'localhost:5000'
+SERVER = '0.0.0.0:5000'
 
 # use this server for prod, once it's on ec2
 # SERVER = 'xxxxx.aws.ec2.com:5000'
 
 
-def get_default():
-    out = dict()
-    h = httplib.HTTPConnection(SERVER)
-    # want the url to look something like this
-    # 'http://localhost:5000/restaurants/borough/counts'
-    h.request('GET', 'http://'+SERVER)
-    resp = h.getresponse()
-    out = resp.read()
-    return out
+def get_result():
+    keys = ["sanitation", 'coffee', "construction"]
 
-def get_resource(var):
-    out = dict()
     h = httplib.HTTPConnection(SERVER)
-    # want the url to look something like this
-    # 'http://localhost:5000/resource/<var>'
-    h.request('GET', 'http://'+SERVER+'/resource/'+var+'?user=steve')
+
+    # want the url to look like this
+    # http://0.0.0.0:5000/result?selected_val=sanitation%2Ccoffee%2Cconstruction#something
+    h.request('GET', 'http://'+SERVER+'/result?selected_val=' + "%2C".join(keys)+'#something')
     resp = h.getresponse()
     out = resp.read()
-    return out
+    soup = BeautifulSoup(out, 'html.parser')
+    result = soup.find("section", {"id": "services"})
+
+    return result.table
 
 
 if __name__ == '__main__':
     print "************************************************"
     print "test of my flask app running at ", SERVER
-    print "created by Bob Ross"
+    print "created by  Christine Chu, Linda Liu, Evelyn Peng"
     print "************************************************"
-    print " "
-    print "******** default **********"
-    print get_default()
-    print " "
-    print "******** resource **********"
-    print get_resource('test')
+    print "******** SFpal class test **********"
+    print get_result()
