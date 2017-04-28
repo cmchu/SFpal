@@ -61,6 +61,10 @@ def post_history():
     out = {'description': out}
     return jsonify(out)
 
+@app.route('/map')
+def map():
+    return render_template('cart.html')
+
 
 if __name__ == "__main__":
     app.run()# need this to access from the outside world!
