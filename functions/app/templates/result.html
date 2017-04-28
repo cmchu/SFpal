@@ -115,15 +115,19 @@
                 <col width="600">
                 <col width="400">
                 <col height="315">
+
+
                 <tr>
                     <th>
-                        <iframe width="560" height="315" src="map" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="560" id = 'iframeinfo' height="315" src="map" frameborder="0" allowfullscreen></iframe>
                     </th>
                     <td>
                         <table border = 0 align="center">
                             <col width="300">
                             <col width="100">
+                            <div id="zipcode" style= "display: none" > {{out[0][1]}} </div>
                         {% for item in out %}
+
 
                            <tr>
                               <th><font size="4"> {{ item[0] }} </font></th>
