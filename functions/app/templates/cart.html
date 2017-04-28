@@ -46,11 +46,10 @@
       $(document).ready(function (){
           cartodb.createVis('map', 'https://lindaliu.carto.com/api/v2/viz/97ddecc4-2b92-11e7-ba70-0ef24382571b/viz.json',
             {     zoom:12,
-                  center_lat:37.784845,
-                  center_lon:-122.388943
+                  center_lat:37.763492,
+                  center_lon:-122.446628
             })
             .done(function(vis,layers){
-                  alert(parseInt(zipcode.innerHTML))
                   map = vis.getNativeMap()
                   L.marker(lonlatinfo[parseInt(zipcode.innerHTML)], {icon: homeIcon}).addTo(map);
                   zipregionLayer = layers[1].getSubLayer(0);
