@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 
 # use this server for dev
-SERVER = 'ec2-54-186-133-112.us-west-2.compute.amazonaws.com'
+SERVER = 'ec2-52-34-213-143.us-west-2.compute.amazonaws.com'
 
 # use this server for prod, once it's on ec2
 # SERVER = 'xxxxx.aws.ec2.com:5000'

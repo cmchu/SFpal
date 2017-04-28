@@ -15,7 +15,7 @@ SERVER = '0.0.0.0:5000'
 def get_default():
     out = dict()
     h = httplib.HTTPConnection(SERVER)
-    h.request('GET', 'http://'+SERVER+'/description')
+    h.request('GET', 'http://'+SERVER)
     resp = h.getresponse()
     out = resp.read()
     return out
