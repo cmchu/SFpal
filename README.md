@@ -32,8 +32,12 @@ One of the important aspects of this app is collecting accurate data on all diff
 After collection of all data, we spatially joined the data with the zipcode data in order to be able to analyze all data by zipcode and in order to make sure all zipcode definitions are equivalent.
 
 ## Community Recommendation System
+Since the app is in its development phase, we are dealing with the cold start problem. This means we do not have any prior data about user behavior. Therefore, our unique solution to this problem was to create a gold standard. To do this, we traveled to every community and recorded our feelings in predetermined categories (i.e., safety, appearance, etc). Finally, in order to recommend a community to a user, we calculated the Jaccard similarity between the users preferences and the gold standard we created for each community. The community with the highest similarity to the users preferences is the top recommended community.
+
+In the future, we plan to get feedback from our users about how well our recommendation system performed. Using that data, we then plan to create a more robust recommendation system.
 
 ## Visualizations
+We used CartoDB in order to show on a map the location of the top recommended community.
 
 ## App Architecture
 For app development, we used Python Flask.
@@ -46,10 +50,13 @@ This folder contains two sub-folders: raw_data and clean_data.
 
 ### development
 This folder contains code to gather/scrape data, clean data, and spatially analyze data.
-  - GeoData_Analysis.ipynb
+  - Clean_Process_data.ipynb
     - cleans parks, schools, and bart stations data, and spatially joins them with zipcode data
     - reads in data from raw_data folder
     - generates cleaned csv files, which are placed into the clean_data folder
+  - Jaccard_similarity.ipynb
+    - calculates the Jaccard similarity between each community and a sample user input
+    - this code was then copied into the app server python file
 
 ### functions 
 This folder contains sub-folders: app, data cleaning, data transforming, and data scraping.

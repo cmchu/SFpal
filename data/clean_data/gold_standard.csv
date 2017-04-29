@@ -1,4 +1,4 @@
-zip,safety,sanitation,peace_quiet,appearance,children_friendly,walking_condition,restaurants,coffee,nightlife,dog_friendly,construction,parks,schools,bart_stations,avg_rent,similarity
+zip,safety,sanitation,peace_quiet,appearance,children_friendly,walking_condition,restaurants,coffee,nightlife,dog_friendly,construction,parks,schools,bart_stations,rent,similarity
 94102,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,1488.97058824,0
 94103,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,1610.0359865,0
 94104,1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,2181.12244898,0

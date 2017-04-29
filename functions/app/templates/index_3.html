@@ -22,9 +22,10 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- For Check box -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/css/build.css">
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">-->
+    <!--<link rel="stylesheet" href="/static/css/build.css">-->
+    <link rel="stylesheet" href="/static/css/check.min.css">
 
 
     <!-- Theme CSS -->
@@ -102,56 +103,117 @@
                 </div>
                     <div class="col-md-6 col-md-offset-4 column">
                     <form role="form" method="post">
+                        <div class = "form-group badge-checkboxes">
 
-                      <div class="checkbox checkbox-info checkbox-circle">
+                      <!--<div class="checkbox checkbox-info checkbox-circle">-->
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="check" value="sanitation">
+                                  <span class="badge"> You care about how clean the world is</span> <br>
+                              </label>
+                          </div>
 
-                          <input type="checkbox" class="styled" name="check" value="sanitation">
-                          <label for="inlineCheckbox1"> You care about how clean the world is</label> <br>
+                            <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" name="check" value="peace_quiet">
+                                  <span class="badge">You are a light sleeper</span> <br>
+                                </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="peace_quiet">
-                          <label for="inlineCheckbox2">You are a light sleeper</label> <br>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="appearance">
+                                  <span class="badge">You take things at its face value and you enjoy beautiful things in life</span> <br>
+                                </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="appearance">
-                          <label for="inlineCheckbox3">You take things at its face value and you enjoy beautiful things in life</label> <br>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="children_friendly">
+                                  <span class="badge">You love/have kids</span> <br>
+                                </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="children_friendly">
-                          <label for="inlineCheckbox4">You love/have kids</label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="walking_condition">
+                                  <span class="badge"> You love walking around </span> <br>
+                              </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="greenery">
-                          <label for="inlineCheckbox5">The color of life has to be green</label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="coffee">
+                                  <span class="badge"> You are a coffee person</span> <br>
+                              </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="walking_condition">
-                          <label for="inlineCheckbox6"> You love walking around </label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="nightlife">
+                                  <span class="badge"> Bar hopping is a must weekend activity</span> <br>
+                              </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="coffee">
-                          <label for="inlineCheckbox7"> You are a coffee person</label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="dog_friendly">
+                                  <span class="badge"> You love/have/will be having a dog</span> <br>
+                              </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="nightlife">
-                          <label for="inlineCheckbox8"> Bar hopping is a must weekend activity</label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="construction">
+                                  <span class="badge">You don't mind construction </span> <br>
+                              </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="dog_friendly">
-                          <label for="inlineCheckbox9"> You love/have/will be having a dog</label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="parks">
+                                  <span class="badge">You love parks and hikes</span> <br>
+                              </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="construction">
-                          <label for="inlineCheckbox10">You hate construction </label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="schools">
+                                  <span class="badge"> You care about the quality of schools</span> <br>
+                              </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="parks">
-                          <label for="inlineCheckbox11">You love parks and hikes</label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="bart_stations">
+                                  <span class="badge"> You don't mind taking subway</span> <br>
+                              </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="schools">
-                          <label for="inlineCheckbox12"> You care about the quality of schools</label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="safety">
+                                  <span class="badge"> Safety is one of your priorities</span> <br>
+                              </label>
+                            </div>
 
-                          <input type="checkbox" class="styled" name="check" value="bart_stations">
-                          <label for="inlineCheckbox13"> You don't mind taking subway</label> <br>
+                            <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" class="styled" name="check" value="restaurants">
+                                  <span class="badge"> You are a foodie!?</span> <br>
+                              </label>
+                            </div>
+                    </div>
 
-                          <input type="checkbox" class="styled" name="check" value="safety">
-                          <label for="inlineCheckbox14"> Safety is one of your priorities</label> <br>
+                        Minimum Rent:
+                          <input type="number" id = 'min' name="min" min="0" max="5000" step="100" value="1500">
+                        Maximum Rent:
+                          <input type="number" id = 'max' name="max" min="0" max="5000" step="100" value="2000">
+                        <br>
+                        <br>
 
-                          <input type="checkbox" class="styled" name="check" value="restaurants">
-                          <label for="inlineCheckbox15"> You are a foodie!?</label> <br>
-                      </div>
                         <div class="col-md-6 col-md-offset-2">
-                      <button type="submit" class="btn btn-xl" name="submit" value="submit">Submit</button>
+                      <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
                         </div>
 
                   </form>
