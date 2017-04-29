@@ -3,10 +3,10 @@ from flask import Flask, request, jsonify,render_template, redirect, url_for
 app = Flask(__name__)
 
 
-def predict(input):
+def predict(input, gold_standard):
     from sklearn.metrics import jaccard_similarity_score
-    import pandas as pd
-    gold_standard = pd.read_csv('gold_standard.csv')
+
+    input[-1] = 1
     for row in range(gold_standard.shape[0]):
         similarity = jaccard_similarity_score(gold_standard.drop(["similarity", "zip"], axis=1).ix[row,],input)
         gold_standard.ix[row, "similarity"] = similarity
@@ -15,12 +15,21 @@ def predict(input):
 
 
 def get_community(selected, min, max):
+    import pandas as pd
 
     keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "walking_condition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
     vals = [1.0 if i in selected else 0.0 for i in keys]
     vals.append([int(min), int(max)])
     print vals
-    prediction = predict(vals)
+
+    gold_standard = pd.read_csv('gold_standard.csv')
+
+    # binarize avg_rent column
+    rent_range = vals[-1]
+    gold_standard["rent"][(gold_standard["rent"] < rent_range[0]) | (gold_standard["rent"] > rent_range[1])] = 0
+    gold_standard["rent"][(gold_standard["rent"] >= rent_range[0]) & (gold_standard["rent"] <= rent_range[1])] = 1
+
+    prediction = predict(vals, gold_standard)
     out = zip(['Best zipcode to live in', 'Second best zipcode to live in', 'Third best zipcode to live in'], prediction)
 
     return out
