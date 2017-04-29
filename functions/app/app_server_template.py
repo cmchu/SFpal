@@ -13,10 +13,13 @@ def predict(input):
 
     return gold_standard.sort_values("similarity", ascending=False).reset_index(drop=True).ix[[0, 1, 2], "zip"]
 
-def get_community(selected):
 
-    keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "greenery", "walking_condition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
+def get_community(selected, min, max):
+
+    keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "walking_condition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
     vals = [1.0 if i in selected else 0.0 for i in keys]
+    vals.append([int(min), int(max)])
+    print vals
     prediction = predict(vals)
     out = zip(['Best zipcode to live in', 'Second best zipcode to live in', 'Third best zipcode to live in'], prediction)
 
@@ -28,17 +31,21 @@ def default():
 
     if request.method == "POST":
         if request.form['submit'] == 'submit':
+            min = request.form["min"]
+            max = request.form["max"]
             selected_val = ','.join(request.form.getlist('check'))
-            return redirect(url_for('.do_result', selected_val=selected_val))
+            return redirect(url_for('.do_result', selected_val=selected_val, min = min, max = max))
     return render_template('index_3.html')
 
 
 @app.route('/result')
 def do_result():
     selected_val = request.args['selected_val']
+    min = request.args['min']
+    max = request.args['max']
 
     val = selected_val.split(",")
-    out = get_community(val)
+    out = get_community(val, min, max)
 
     return render_template('result.html', scroll='something', out=out)
 
