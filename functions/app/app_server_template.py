@@ -6,7 +6,6 @@ app = Flask(__name__)
 def predict(input, gold_standard):
     from sklearn.metrics import jaccard_similarity_score
 
-    input[-1] = 1
     for row in range(gold_standard.shape[0]):
         similarity = jaccard_similarity_score(gold_standard.drop(["similarity", "zip"], axis=1).ix[row,],input)
         gold_standard.ix[row, "similarity"] = similarity
@@ -16,18 +15,43 @@ def predict(input, gold_standard):
 
 def get_community(selected, min, max):
     import pandas as pd
+    import numpy as np
+    import config_appdev
+    import get_eta
 
     keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "walking_condition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
     vals = [1.0 if i in selected else 0.0 for i in keys]
     vals.append([int(min), int(max)])
+    #===================ADD IN [LAT,LON,driving_boolean] HERE - APPEND TO VALS===========================
     print vals
 
     gold_standard = pd.read_csv('gold_standard.csv')
 
     # binarize avg_rent column
-    rent_range = vals[-1]
+    rent_range = vals[-2]
     gold_standard["rent"][(gold_standard["rent"] < rent_range[0]) | (gold_standard["rent"] > rent_range[1])] = 0
     gold_standard["rent"][(gold_standard["rent"] >= rent_range[0]) & (gold_standard["rent"] <= rent_range[1])] = 1
+    vals[-2] = 1
+
+    # binarize most frequent destination input/column
+    lat_lon = vals[-1]
+    if lat_lon[:2] == [0, 0]:
+        gold_standard["mindist"] = 0
+        vals[-1] = 0
+    else:
+        API_KEY = config_appdev.API_KEY
+        orig_coord = ','.join([str(lat_lon[0]), str(lat_lon[1])])
+        eta = get_eta.batch_time(orig_coord, API_KEY, is_driving=lat_lon[2])
+        eta["zip"] = eta["zip"].astype(np.int64)
+        gold_standard = gold_standard.merge(eta, on="zip", how="left")
+
+        eta_25p = np.nanpercentile(gold_standard["mindist"], q=25)
+        gold_standard["mindist"][(gold_standard["mindist"] <= eta_25p)] = 0
+        gold_standard["mindist"][(gold_standard["mindist"] > eta_25p)] = 1
+        vals[-1] = 1
+
+    # set all NaN values to 0
+    gold_standard = gold_standard.fillna(0)
 
     prediction = predict(vals, gold_standard)
     out = zip(['Best zipcode to live in', 'Second best zipcode to live in', 'Third best zipcode to live in'], prediction)
