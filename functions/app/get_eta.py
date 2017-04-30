@@ -19,7 +19,7 @@ def get_time_sec(orig_coord,dest_coord,API_KEY,mode ='transit'):
 
 def batch_time(orig_coord,API_KEY,is_driving=False):
 
-    reader= shapefile.Reader('../data/clean_data/SF_zip_points/point.shp')
+    reader= shapefile.Reader('SF_zip_points/point.shp')
     df = pd.DataFrame(columns=['zip','lon','lat'])
     fields = [field[0] for field in reader.fields[1:]]
     for i,feature in enumerate(reader.shapeRecords()):
