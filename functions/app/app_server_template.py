@@ -13,7 +13,7 @@ def predict(input, gold_standard):
     return gold_standard.sort_values("similarity", ascending=False).reset_index(drop=True).ix[[0, 1, 2], "zip"]
 
 
-def get_community(selected, min, max):
+def get_community(selected, min, max, lat, lon):
     import pandas as pd
     import numpy as np
     import config_appdev
@@ -22,6 +22,7 @@ def get_community(selected, min, max):
     keys = ["sanitation", "peace_quiet", "appearance", "children_friendly", "walking_condition", "coffee", "nightlife", "dog_friendly", "construction", "parks", "schools", "bart_stations", "safety", "restaurants"]
     vals = [1.0 if i in selected else 0.0 for i in keys]
     vals.append([int(min), int(max)])
+    vals.append([float(lat), float(lon), [True if 'drive' in selected else False][0]])
     #===================ADD IN [LAT,LON,driving_boolean] HERE - APPEND TO VALS===========================
     print vals
 
@@ -58,6 +59,29 @@ def get_community(selected, min, max):
 
     return out
 
+def address_to_coordinates(address):
+    import urllib, urllib2, json
+    """
+    Given a text address, converts it to latitude and longitude, using Google Maps API
+
+    Input: Address (string)
+
+    Output: latitude, longitude
+    """
+    params = {
+        'address': address,
+        'sensor': 'false',
+    }
+    url = 'https://maps.google.com/maps/api/geocode/json?' + urllib.urlencode(params)
+    response = urllib2.urlopen(url)
+    result = json.load(response)
+    try:
+        location = result['results'][0]['geometry']['location']
+        latitude, longitude = location['lat'], location['lng']
+        return latitude, longitude
+    except:
+        latitude, longitude = 0, 0
+        return latitude, longitude
 
 @app.route('/', methods=['GET', 'POST'])
 def default():
@@ -66,8 +90,10 @@ def default():
         if request.form['submit'] == 'submit':
             min = request.form["min"]
             max = request.form["max"]
+            latitude, longitude = address_to_coordinates(request.form["address"])
+
             selected_val = ','.join(request.form.getlist('check'))
-            return redirect(url_for('.do_result', selected_val=selected_val, min = min, max = max))
+            return redirect(url_for('.do_result', selected_val=selected_val, min = min, max = max, lat = latitude, lon = longitude))
     return render_template('index_3.html')
 
 
@@ -76,9 +102,12 @@ def do_result():
     selected_val = request.args['selected_val']
     min = request.args['min']
     max = request.args['max']
+    lat = request.args['lat']
+    lon = request.args['lon']
+    print lat, lon
 
     val = selected_val.split(",")
-    out = get_community(val, min, max)
+    out = get_community(val, min, max, lat, lon)
 
     return render_template('result.html', scroll='something', out=out)
 
