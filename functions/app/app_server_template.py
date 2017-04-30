@@ -90,7 +90,10 @@ def default():
         if request.form['submit'] == 'submit':
             min = request.form["min"]
             max = request.form["max"]
-            latitude, longitude = address_to_coordinates(request.form["address"])
+            try:
+                latitude, longitude = address_to_coordinates(request.form["address"])
+            except:
+                latitude, longitude = 0, 0
 
             selected_val = ','.join(request.form.getlist('check'))
             return redirect(url_for('.do_result', selected_val=selected_val, min = min, max = max, lat = latitude, lon = longitude))
@@ -104,7 +107,6 @@ def do_result():
     max = request.args['max']
     lat = request.args['lat']
     lon = request.args['lon']
-    print lat, lon
 
     val = selected_val.split(",")
     out = get_community(val, min, max, lat, lon)
