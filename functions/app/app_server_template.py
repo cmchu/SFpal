@@ -23,7 +23,6 @@ def get_community(selected, min, max, lat, lon):
     vals = [1.0 if i in selected else 0.0 for i in keys]
     vals.append([int(min), int(max)])
     vals.append([float(lat), float(lon), [True if 'drive' in selected else False][0]])
-    #===================ADD IN [LAT,LON,driving_boolean] HERE - APPEND TO VALS===========================
     print vals
 
     gold_standard = pd.read_csv('gold_standard.csv')
