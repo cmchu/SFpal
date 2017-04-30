@@ -1,7 +1,6 @@
 import simplejson, urllib
 import pandas as pd
 import shapefile
-import sys, os
 
 def get_time_sec(orig_coord,dest_coord,API_KEY,mode ='transit'):
 	'''
