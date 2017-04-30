@@ -46,8 +46,8 @@ def get_community(selected, min, max):
         gold_standard = gold_standard.merge(eta, on="zip", how="left")
 
         eta_25p = np.nanpercentile(gold_standard["mindist"], q=25)
-        gold_standard["mindist"][(gold_standard["mindist"] <= eta_25p)] = 0
-        gold_standard["mindist"][(gold_standard["mindist"] > eta_25p)] = 1
+        gold_standard["mindist"][(gold_standard["mindist"] <= eta_25p)] = 1
+        gold_standard["mindist"][(gold_standard["mindist"] > eta_25p)] = 0
         vals[-1] = 1
 
     # set all NaN values to 0
