@@ -90,7 +90,7 @@ def default():
             min = request.form["min"]
             max = request.form["max"]
             try:
-                latitude, longitude = address_to_coordinates(request.form["address"])
+                latitude, longitude = address_to_coordinates(request.form["address"] + request.form["city"])
             except:
                 latitude, longitude = 0, 0
 
