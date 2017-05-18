@@ -1,4 +1,8 @@
 # SFpal
+Contributors: Christine Chu, Tianyi Liu, Evelyn Peng
+
+Visit [sfpal.life](sfpal.life)
+
 With SFpal, you can find your next community with ease. 
 
 There are many factors to consider for an individual moving to a big city: rent price, commute time, safety, nightlife, restaurants, outdoor activities, noise, etc. Although you might be able to discover that information from a friend (or a friend’s friend) we merge that data altogether onto one platform to make decisions easier for you. We leverage data to help you decide on an area to live in that caters most to your needs. 
@@ -32,7 +36,7 @@ One of the important aspects of this app is collecting accurate data on all diff
 After collection of all data, we spatially joined the data with the zipcode data in order to be able to analyze all data by zipcode and in order to make sure all zipcode definitions are equivalent.
 
 ## Community Recommendation System
-Since the app is in its development phase, we are dealing with the cold start problem. This means we do not have any prior data about user behavior. Therefore, our unique solution to this problem was to create a gold standard. To do this, we traveled to every community and recorded our feelings in predetermined categories (i.e., safety, appearance, etc). Finally, in order to recommend a community to a user, we calculated the Jaccard similarity between the users preferences and the gold standard we created for each community. The community with the highest similarity to the users preferences is the top recommended community.
+Since the app is in its development phase, we are dealing with the cold start problem. This means we do not have any prior data about user behavior. Therefore, our unique solution to this problem was to create a gold standard, based on both the above collected data and our personal feelings. To do this, we traveled to every community and recorded our feelings in predetermined categories (i.e., safety, appearance, etc). Finally, in order to recommend a community to a user, we calculated the Jaccard similarity between the users preferences and the gold standard we created for each community. The community with the highest similarity to the users preferences is the top recommended community.
 
 In the future, we plan to get feedback from our users about how well our recommendation system performed. Using that data, we then plan to create a more robust recommendation system.
 
@@ -49,25 +53,13 @@ This folder contains two sub-folders: raw_data and clean_data.
   - **raw_data** contains the originally scraped data or downloaded data
 
 ### development
-This folder contains code to gather/scrape data, clean data, and spatially analyze data.
-  - Clean_Process_data.ipynb
-    - cleans parks, schools, and bart stations data, and spatially joins them with zipcode data
-    - reads in data from raw_data folder
-    - generates cleaned csv files, which are placed into the clean_data folder
-  - Jaccard_similarity.ipynb
-    - calculates the Jaccard similarity between each community and a sample user input
-    - this code was then copied into the app server python file
+This folder contains code written in the development phase to gather/scrape data, clean data, and spatially analyze data. These files were then incorporated into our final app.
 
 ### functions 
 This folder contains sub-folders: app, data cleaning, data transforming, and data scraping.
   - **app** contains the app architecture (server, client, etc.).
-  - **data scraping** 
-    - rent_citydata.py
-      - scrapes data from Zillow and City-Data
-      - gathers data on Price, Zillow Price (per sqft), Zillow Rent (per sqft), Income, Poverty (% below the poverty level), Degree (percentage who have Bachelor's degree), Cost of Living (living index)
-      - generates ZIPdata.csv file and zip.csv file
-        - zillow_citydata.csv contains data on every listing in San Francisco
-        - zillow_citydata_condensed.csv condenses the data in zillow_citydata.csv to provide averaged data for each zip code
+  - **data_scraping** contains the code used to scrape data from Zillow and City-Data.
+  - **data transforming** contains code to get the estimated time from one zip code to a specified address.
   
 ## Python Package Dependencies
   - geopandas
